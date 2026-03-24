@@ -86,6 +86,24 @@ Run these checks to verify A2A is working:
 - [ ] Agent Card accessible: `curl http://localhost:8081/.well-known/agent-card.json` returns valid JSON
 - [ ] `message/send` returns a completed task with artifacts
 
+## Team
+
+| Member | GitHub | Strengths | Comms |
+|--------|--------|-----------|-------|
+| fshot | @fshot | Claude Code, AWS, GCP, GitHub/DevOps, Multitasking | Slack: fshot |
+
+### Availability
+
+| Member | Hours Available | Dev Environment |
+|--------|-----------------|-----------------|
+| fshot | 24 of 24 | macOS, VS Code, Docker, Claude Code |
+
+### Communication
+
+- Primary channel: Slack
+- Tag teammates using their GitHub handle in issues and PRs
+- For urgent items, use the Slack handle listed above
+
 ## Project Structure
 
 ```
