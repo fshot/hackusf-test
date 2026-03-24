@@ -66,6 +66,17 @@ echo "--- Google Cloud ---"
 gcloud auth print-access-token 2>/dev/null && echo "OK" || echo "Not configured (may not be needed yet)"
 ```
 
+### Google ADK Setup Validation
+
+Run these checks to verify your Google ADK configuration:
+
+- [ ] Python 3.10+ installed: `python --version`
+- [ ] ADK installed: `pip show google-adk`
+- [ ] Environment variable `GOOGLE_API_KEY` is set (or Vertex AI configured)
+- [ ] `adk create test_agent && adk run test_agent` starts successfully
+- [ ] (For deployment) `gcloud auth application-default login` succeeds
+- [ ] (For deployment) `gcloud services list --enabled` shows `run.googleapis.com` and `aiplatform.googleapis.com`
+
 ## Project Structure
 
 ```
