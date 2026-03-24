@@ -1,0 +1,19 @@
+[project]
+name = "hackusf-test"
+version = "0.1.0"
+description = "FireShield AI — multi-agent wildfire home hardening advisor"
+requires-python = ">=3.10"
+dependencies = [
+    "google-adk[a2a]>=1.27.3",
+    "httpx>=0.28.1",
+    "uvicorn>=0.42.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = ["."]

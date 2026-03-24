@@ -34,14 +34,13 @@ These skills are loaded automatically and provide context about the hackathon:
 
 ## Tech Stack
 
-- Runtime: Node.js
-- Package manager: pnpm
-- Language: TypeScript (strict)
-- Frontend: Next.js on Vercel, Tailwind CSS, shadcn/ui
-- UI components: shadcn/ui
-- IaC: Terraform
-- Local cloud: LocalStack for AWS services
-- Testing: Vitest (unit), Playwright (E2E)
+- Runtime: Python 3.10+
+- Package manager: uv
+- Framework: Google ADK (Agent Development Kit)
+- LLM: Gemini 2.0 Flash (via Gemini API / Vertex AI)
+- Protocol: A2A (Agent-to-Agent) for multi-agent communication
+- Deployment: Google Cloud Run with `adk deploy cloud_run --with_ui`
+- Testing: pytest
 - State: GitHub Issues + Projects
 
 ## Important Rules
@@ -57,14 +56,17 @@ These skills are loaded automatically and provide context about the hackathon:
 ## Credentials
 
 All credentials are in `.env` (gitignored). See `.env.example` for required vars.
-Set `USE_MOCKS=true` for local development without real API keys.
+For local dev: set `GOOGLE_API_KEY` (free from https://aistudio.google.com/apikey).
+For deployment: switch to Vertex AI with `GOOGLE_GENAI_USE_VERTEXAI=TRUE`.
 
 ## Key Commands
 
-- `pnpm dev` — Start development server
-- `pnpm test` — Run unit tests
-- `pnpm test:e2e` — Run E2E tests
-- `pnpm lint` — Lint and type-check
+- `./scripts/dev.sh` — Start ADK dev UI (all agents, http://localhost:8000)
+- `./scripts/run-a2a.sh` — Start all agents as A2A servers + orchestrator UI
+- `./scripts/verify-agents.sh` — Health check all running agents
+- `./scripts/deploy.sh <PROJECT_ID>` — Deploy all agents to Cloud Run
+- `uv run pytest` — Run tests
+- `uv run adk web agents/` — ADK dev UI (manual)
 
 ## Scoring Rubric
 
@@ -86,5 +88,6 @@ Set `USE_MOCKS=true` for local development without real API keys.
 ## Quality Gates
 
 - All PRs must reference a plan file and the tracking issue.
-- Run `pnpm lint && pnpm test` before marking any task complete.
+- Run `uv run pytest` before marking any task complete.
+- Verify agents respond correctly via `adk web` or `scripts/verify-agents.sh`.
 - Verification before completion: test the feature manually, check for edge cases.
