@@ -77,6 +77,15 @@ Run these checks to verify your Google ADK configuration:
 - [ ] (For deployment) `gcloud auth application-default login` succeeds
 - [ ] (For deployment) `gcloud services list --enabled` shows `run.googleapis.com` and `aiplatform.googleapis.com`
 
+### Google A2A Protocol Validation
+
+Run these checks to verify A2A is working:
+
+- [ ] A2A SDK installed: `pip show a2a-sdk` (or `pip show google-adk` with `[a2a]` extra)
+- [ ] Can start a local A2A agent: `uvicorn agent:app --port 8081` starts without errors
+- [ ] Agent Card accessible: `curl http://localhost:8081/.well-known/agent-card.json` returns valid JSON
+- [ ] `message/send` returns a completed task with artifacts
+
 ## Project Structure
 
 ```
