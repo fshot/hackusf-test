@@ -12,8 +12,13 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",
+    "pytest-asyncio>=1.0.0",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["test"]
 pythonpath = ["."]
+markers = [
+    "integration: end-to-end tests requiring API credentials",
+]
+asyncio_mode = "auto"
